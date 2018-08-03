@@ -12,7 +12,6 @@ vector<int> Solution::plusOne(vector<int> &A) {
         A.push_back(1);
         return A;
     }
-    
     while(A[i++]==0)
     {
         count++;
