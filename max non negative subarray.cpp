@@ -31,3 +31,39 @@ vector<int> Solution::maxset(vector<int> &A) {
        
        return ans;
 }
+
+//new solution
+vector<int> Solution::maxset(vector<int> &A) {
+    vector<int> sol;
+    int count=0;
+    double max=0,sum=0,diff=0,prev=-1;
+    int n=A.size();
+    for(int i=0;i<A.size();i++)
+    {
+        //cout<<i<<"\n";
+        int k=i;
+        while(A[i]>=0 && i<n)
+        {
+            sum=sum+A[i];
+            i++;
+            //sol.push_back(A[i]);
+            //sol.push_back(A[i]);
+        }
+        int j=i;
+        //cout<<max<<"\n";
+        if(((max<=sum || max==0) || (j-k)>diff) ) //|| (max=sum && (j-k)>diff))
+        {
+            max=sum;
+           // prev=max;//&& prev!=max
+            sol.clear();
+            for(int x=k;x<j;x++)
+            {
+                sol.push_back(A[x]);
+            }
+            diff=j-k;
+        }
+        sum=0;
+    }
+    return sol;
+}
+
